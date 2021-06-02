@@ -198,7 +198,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(filters.command("current") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("2current") & filters.group & ~filters.edited)
 async def ee(client, message):
     queue = que.get(message.chat.id)
     stats = updated_stats(message.chat, queue)
@@ -208,7 +208,7 @@ async def ee(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_message(filters.command("player") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("2player") & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     playing = None
@@ -227,7 +227,7 @@ async def settings(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_callback_query(filters.regex(pattern=r"^(playlist)$"))
+@Client.on_callback_query(filters.regex(pattern=r"^(2playlist)$"))
 async def p_cb(b, cb):
     global que
     que.get(cb.message.chat.id)
@@ -260,7 +260,7 @@ async def p_cb(b, cb):
 
 
 @Client.on_callback_query(
-    filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
+    filters.regex(pattern=r"^(2play|2pause|2skip|2leave|2puse|2resume|2menu|2cls)$")
 )
 @cb_admin_check
 async def m_cb(b, cb):
@@ -400,7 +400,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command("2play") & other_filters)
 async def play(_, message: Message):
     global que
     lel = await message.reply("🔄 **Processing**")
@@ -639,7 +639,7 @@ async def play(_, message: Message):
         return await lel.delete()
 
 
-@Client.on_message(filters.command("dplay") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("2dplay") & filters.group & ~filters.edited)
 async def deezer(client: Client, message_: Message):
     global que
     lel = await message_.reply("🔄 **Processing**")
@@ -767,7 +767,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 
 
-@Client.on_message(filters.command("splay") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("2splay") & filters.group & ~filters.edited)
 async def jiosaavn(client: Client, message_: Message):
     global que
     lel = await message_.reply("🔄 **Processing**")
