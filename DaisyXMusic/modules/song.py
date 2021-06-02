@@ -39,7 +39,7 @@ from DaisyXMusic.config import DURATION_LIMIT
 from DaisyXMusic.modules.play import arq
 
 
-@Client.on_message(filters.command("song") & ~filters.channel)
+@Client.on_message(filters.command("2song") & ~filters.channel)
 def song(client, message):
 
     user_id = message.from_user.id
@@ -264,7 +264,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@Client.on_message(filters.command("saavn") & ~filters.edited)
+@Client.on_message(filters.command("2saavn") & ~filters.edited)
 async def jssong(_, message):
     global is_downloading
     if len(message.command) < 2:
@@ -303,7 +303,7 @@ async def jssong(_, message):
 # Deezer Music
 
 
-@Client.on_message(filters.command("deezer") & ~filters.edited)
+@Client.on_message(filters.command("2deezer") & ~filters.edited)
 async def deezsong(_, message):
     global is_downloading
     if len(message.command) < 2:
@@ -339,7 +339,7 @@ async def deezsong(_, message):
     is_downloading = False
 
 
-@Client.on_message(filters.command(["vsong", "video"]))
+@Client.on_message(filters.command(["2vsong", "2video"]))
 async def ytmusic(client, message: Message):
     global is_downloading
     if is_downloading:
