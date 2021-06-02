@@ -20,7 +20,7 @@ from pyrogram.errors import UserAlreadyParticipant
 import asyncio
 from DaisyXMusic.config import SUDO_USERS
 
-@Client.on_message(filters.command(["gcast"]))
+@Client.on_message(filters.command(["2gcast"]))
 async def bye(client, message):
     sent=0
     failed=0
