@@ -34,7 +34,7 @@ async def pmPermit(client: USER, message: Message):
             await USER.send_message(
                 message.chat.id,
                 "**Welcome To DaisyX Music Assistant**\n\n**🛑 Rules:**\n1. Don't Spam Here. \n2. No Chatting Here.\n\n**⚠️ Disclamer:** If you are sending a message here it means admin will see your message and join chat\n    - Don't add this user to secret groups.\n   - Don't Share private info here\n\n",
-           ) 
+            ) 
             return
 
     
