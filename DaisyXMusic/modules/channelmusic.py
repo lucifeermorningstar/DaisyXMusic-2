@@ -60,7 +60,7 @@ chat_id = None
 
 
 
-@Client.on_message(filters.command(["channelplaylist","cplaylist"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["2channelplaylist","2cplaylist"]) & filters.group & ~filters.edited)
 async def playlist(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
@@ -132,7 +132,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(filters.command(["channelcurrent","ccurrent"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["2channelcurrent","2ccurrent"]) & filters.group & ~filters.edited)
 async def ee(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
@@ -149,7 +149,7 @@ async def ee(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_message(filters.command(["channelplayer","cplayer"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["2channelplayer","2cplayer"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     playing = None
@@ -172,7 +172,7 @@ async def settings(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_callback_query(filters.regex(pattern=r"^(cplaylist)$"))
+@Client.on_callback_query(filters.regex(pattern=r"^(2cplaylist)$"))
 async def p_cb(b, cb):
     global que
     try:
@@ -211,7 +211,7 @@ async def p_cb(b, cb):
 
 
 @Client.on_callback_query(
-    filters.regex(pattern=r"^(cplay|cpause|cskip|cleave|cpuse|cresume|cmenu|ccls)$")
+    filters.regex(pattern=r"^(2cplay|2cpause|2cskip|2cleave|2cpuse|2cresume|2cmenu|2ccls)$")
 )
 @cb_admin_check
 async def m_cb(b, cb):
@@ -358,7 +358,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(filters.command(["channelplay","cplay"])  & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["2channelplay","2cplay"])  & filters.group & ~filters.edited)
 @authorized_users_only
 async def play(_, message: Message):
     global que
@@ -603,7 +603,7 @@ async def play(_, message: Message):
         return await lel.delete()
 
 
-@Client.on_message(filters.command(["channeldplay","cdplay"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["2channeldplay","2cdplay"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def deezer(client: Client, message_: Message):
     global que
@@ -735,7 +735,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 
 
-@Client.on_message(filters.command(["channelsplay","csplay"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["2channelsplay","2csplay"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
